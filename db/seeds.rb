@@ -15,7 +15,7 @@ file_path = File.join(Rails.root, "public", "sf.csv")
 
 a = Roo::Spreadsheet.open(file_path)
 
-a.each({:date => "time", :weather_high => "temperatureMax", :weather_min => "temperatureMin"}) do |x, index|
+a.each({:date => "time", :weather_high => "temperatureMax", :weather_min => "temperatureMin"}) do |x|
   
   Weather.create(:date => Time.at(x[:date].to_i).to_date, :weather_high => x[:weather_high].to_f, :weather_low => x[:weather_min].to_f)
 end

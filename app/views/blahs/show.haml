@@ -1,0 +1,34 @@
+%h1 CSV
+= @csv.inspect
+#csv
+
+Hello
+:javascript
+  $(document).ready(function(){
+    $("#graph").remove()
+    var options = {
+      url: "/something_else/#{@csv}",
+      complete: parseData
+    }
+    $.ajax(options);
+
+    function parseData(response){
+      console.log(response.responseText);
+      data = $.parseJSON(response.responseText);
+
+      plot_graph(data);
+    }
+
+    function plot_graph(data){
+      $("#graph").remove()
+      $("h1").append('<div id="csv"></div>')
+       Morris.Line({
+        parseTime: false,
+        element: 'csv',
+        data: data,
+        xkey: "date",
+        ykeys: ['max', 'min'],
+        labels: ["Max", "Min"]
+      })  
+    } 
+  });
