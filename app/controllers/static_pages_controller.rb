@@ -1,5 +1,6 @@
 class StaticPagesController < ApplicationController
   def index
+    @csv = Blah.new
   end
   def data
     @weather = Weather.all

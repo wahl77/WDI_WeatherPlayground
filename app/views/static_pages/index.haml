@@ -8,3 +8,8 @@
 %button#locate
   Get My Own Data
 
+
+= form_for @csv, html_options:{mutipart:true} do |f|
+  = f.label :url
+  = f.file_field :url
+  = f.submit
