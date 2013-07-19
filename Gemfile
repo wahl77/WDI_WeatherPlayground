@@ -7,6 +7,10 @@ gem 'rails', '3.2.13'
 
 gem 'pg'
 gem 'haml-rails'
+gem 'roo'
+gem 'forecast_io'
+gem 'carrierwave'
+
 
 
 # Gems used only for assets and not required
